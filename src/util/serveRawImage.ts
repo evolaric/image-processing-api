@@ -4,7 +4,7 @@ import doesFileExist from './doesFileExist';
 
 export function serveRawImage(req: Request, res: Response, next: NextFunction) {
   const filename = req.query.name;
-  const imageDir = __dirname + '../../images/raw-images/';
+  const imageDir = path.join(__dirname + '../../images/raw-images/');
   const imagePath = path.join(imageDir + filename);
 
   // if a request comes through with just a file name, serves a raw image
