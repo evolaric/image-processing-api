@@ -2,15 +2,13 @@
 // THIS IS WHERE THE MAGIC HAPPENS
 
 import express, { Request, Response } from 'express';
-import * as fs from 'fs/promises';
-import path from 'path';
+
 import checkQuery from '../../../util/checkQuery';
 import serveRawImage from '../../../util/serveRawImage';
 import serveResizedImage from '../../../util/serveResizedImage';
 import serveScaledImage from '../../../util/serveScaledImage';
 
 const image = express.Router();
-
 image.use(checkQuery);
 image.use(serveRawImage);
 image.use(serveScaledImage);
