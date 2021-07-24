@@ -1,17 +1,18 @@
 import { Request, Response, NextFunction } from 'express';
-import doesFileExist from './doesFileExist';
+import path from 'path';
+import processImage from './processImage';
 
 export function serveResizedImage(
   req: Request,
   res: Response,
   next: NextFunction
 ) {
+  const resizedDir = path.join(__dirname + '../../images/thumbnails/resized/');
   //if a request with height and width comes is, serves a resized image
   if (req.query.name && req.query.height && req.query.width) {
-    console.log('serveResizedImage');
-    return res.send('this is the resized image thing');
-    next();
+    return processImage(req, res, resizedDir);
   }
+  next();
 }
 
 export default serveResizedImage;
