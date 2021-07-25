@@ -1,10 +1,12 @@
 // host:/api/
 import express from 'express';
+import docs from '../../util/docs';
 
 const api = express.Router();
 
+// displays basic API documentation in JSON format
 api.get('/api', (req, res) => {
-  res.send(`<h2>placeholder: api endpoint</h2>`);
+  res.json(docs);
 });
 
 export default api;

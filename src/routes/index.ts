@@ -1,9 +1,10 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 
 const topLevel = express.Router();
 
-topLevel.get('/', (req, res) => {
-  res.send(`<h2>placeholder: top level endpoint</h2>`);
+// redirects a call to the base domain to the api route
+topLevel.get('/', (_req: Request, res: Response) => {
+  res.redirect('./api');
 });
 
 export default topLevel;

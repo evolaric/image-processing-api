@@ -1,8 +1,8 @@
 #Build Directory
 build/
 
-#Processes Image Directory
-src/images/thumbnails/
+#Image Directory
+src/images/thumbnails
 
 # Logs
 logs

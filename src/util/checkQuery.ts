@@ -1,10 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 
-export function checkQuery(req: Request, res: Response, next: NextFunction) {
+// Checks to see if the URL requested is valid
+export function checkQuery(req: Request, res: Response, next: NextFunction): unknown {
   if (!req.query.name) {
-    return res.status(404).send('404 error: no image file was specified');
+    return res
+      .status(404)
+      .json({ error: '404: File Not Found', message: 'URL must contain a valid file name and optional parameters' });
   }
-
   next();
 }
 
