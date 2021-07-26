@@ -23,21 +23,19 @@ export function processImage(req: Request, res: Response, directory: string): un
 
   // sends modified file if it exists, otherwise calls sharp and sends the new file
   if (doesFileExist(writePathFile)) {
-    console.log('file exists');
     return res.sendFile(writePathFile);
   } else {
     sharp(rawImage)
       .resize(width, height)
       .toFile(writePathFile, (err) => {
         if (err) {
-          // returns a 500 error is the call to sharp is badly malformed
+          // returns a 500 error if the call to sharp is badly malformed
           return res.status(500).json({
             error: '500: Server Error',
             message: 'image cannot be processed with provided parameters.  Check your URL and try again.'
           });
         } else {
           // returns the newly processed image
-          console.log('new file created');
           return res.sendFile(writePathFile);
         }
       });
