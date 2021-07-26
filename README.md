@@ -19,7 +19,7 @@ or
 
 **run prettier**
 
-    npm run prettier
+    npm prettier
 
 **run tests**
 
@@ -44,3 +44,10 @@ http://localhost:3000/api/image?name=pattern0003.png&width=400&height=300
 
 **You may also access basic documentation via**
 http://localhost:3000/api
+
+**Photo Credits**
+Photos by:
+https://unsplash.com/@hamidtajikph
+https://unsplash.com/@martzzl
+**Unsplash License**
+https://unsplash.com/license
