@@ -3,8 +3,9 @@
 **To download an install dependencies:**
 
     git clone https://github.com/evolaric/image-processing-api.git
+    cd image-processing-api
     npm install
-
+    
 **Start the project**
 
     npm run start
@@ -29,7 +30,7 @@ or
 
     npm run build
 
-Use
+**Use**
 
 The API will scale, resize, and serve images according to parameters passed via url.
 

@@ -2,7 +2,11 @@
 build/
 
 #Image Directory
+src/images
+src/images/raw-images
 src/images/thumbnails
+src/images/thumbnails/scaled
+src/images/thumbnails/resized
 
 # Logs
 logs
