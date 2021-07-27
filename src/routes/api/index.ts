@@ -1,11 +1,11 @@
 // host:/api/
-import express from 'express';
+import express, { Request, Response } from 'express';
 import docs from '../../util/docs';
 
 const api = express.Router();
 
 // displays basic API documentation in JSON format
-api.get('/api', (req, res): void => {
+api.get('/api', (_req: Request, res: Response): void => {
   res.json(docs);
 });
 

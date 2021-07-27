@@ -14,6 +14,7 @@ image.use(serveResizedImage);
 
 // endpoint for diplaying, resizing, and scaling images
 image.get('/api/image', (req: Request, res: Response): void => {
+  //THIS SHOULD NEVER DISPLAY
   res.send(`<h2>The image endpoint</h2>`);
 });
 
