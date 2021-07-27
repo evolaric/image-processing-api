@@ -5,8 +5,8 @@ import { Request, Response, NextFunction } from 'express';
 
 export function setLocals(req: Request, res: Response, next: NextFunction): void {
   res.locals.name = req.query.name || null;
-  res.locals.height = req.query.height || null;
-  res.locals.width = req.query.width || null;
+  res.locals.height = Number(req.query.height) || null;
+  res.locals.width = Number(req.query.width) || null;
   next();
 }
 

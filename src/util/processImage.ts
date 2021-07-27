@@ -15,11 +15,11 @@ export function processImage(req: Request, res: Response, directory: string): un
   const rawImage = path.join(__dirname + '../../images/raw-images/' + fileBaseName + imageExtension);
 
   // if the base image does not exist, sends an error 404
-  if (!doesFileExist(rawImage)) {
+  /* if (!doesFileExist(rawImage)) {
     return res
       .status(404)
       .json({ error: '404: File Not Found', message: 'Base file does not exist. Check your URL and try again.' });
-  }
+  } */
 
   // sends modified file if it exists, otherwise calls sharp and sends the new file
   if (doesFileExist(writePathFile)) {
