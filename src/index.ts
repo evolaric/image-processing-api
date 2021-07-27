@@ -14,7 +14,7 @@ app.use(topLevel);
 app.use(api);
 app.use(image);
 
-app.listen(port, () => {
+app.listen(port, (): void => {
   console.log(`App listening on port ${port}`);
 });
 

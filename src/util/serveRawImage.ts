@@ -7,6 +7,7 @@ export function serveRawImage(req: Request, res: Response, next: NextFunction): 
   const filename = req.query.name;
   const imageDir = path.join(__dirname + '../../images/raw-images/');
   const imagePath = path.join(imageDir + filename);
+  console.log(res.locals.name, res.locals.height, res.locals.width);
 
   if (req.query.name && !req.query.height && !req.query.width) {
     const checkFile = doesFileExist(imagePath);
