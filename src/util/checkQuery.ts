@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { checkName, checkRawImage, fileNameOnly, checkDimensions, verifyNumbers, verifyIntegers } from './queryHelpers';
+
 // Checks to see if the URL requested is valid
 export function checkQuery(req: Request, res: Response, next: NextFunction): unknown {
   if (!checkName(req)) {

@@ -1,10 +1,9 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import processImage from './processImage';
 import doesFileExist from './doesFileExist';
 
-export async function serveImage(req: Request, res: Response, next: NextFunction): Promise<void> {
+export async function serveImage(_req: Request, res: Response): Promise<void> {
   if (doesFileExist(res.locals.finalFilePath)) {
-    console.log('file does exist');
     res.sendFile(res.locals.finalFilePath);
     return;
   } else {
@@ -13,7 +12,6 @@ export async function serveImage(req: Request, res: Response, next: NextFunction
     );
     return;
   }
-  next();
 }
 
 export default serveImage;

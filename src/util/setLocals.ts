@@ -5,7 +5,7 @@ import { deconstructFileName, setDestination, setFilePath } from './localsHelper
 //This should allow us to send res.locals to sharp instead of a bunch of hard to read variables
 
 export function setLocals(req: Request, res: Response, next: NextFunction): void {
-  res.locals.name = String(req.query.name) || null; // this is the raw file name
+  res.locals.name = String(req.query.name); // this is the raw file name
   res.locals.height = Number(req.query.height) || null;
   res.locals.width = Number(req.query.width) || null;
   [res.locals.fileBaseName, res.locals.fileExtension, res.locals.rawImagePath] = deconstructFileName(res.locals.name);
@@ -18,7 +18,6 @@ export function setLocals(req: Request, res: Response, next: NextFunction): void
     res.locals.destinationDirectory
   );
 
-  console.log(res.locals);
   next();
 }
 

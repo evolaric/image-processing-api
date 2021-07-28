@@ -1,20 +1,18 @@
 import { Request, Response, NextFunction } from 'express';
-import path from 'path';
-import doesFileExist from './doesFileExist';
 
 // if a request comes through with just a file name, serves a raw image
 export function serveRawImage(req: Request, res: Response, next: NextFunction): unknown {
-  const filename = req.query.name;
-  const imageDir = path.join(__dirname + '../../images/raw-images/');
-  const imagePath = path.join(imageDir + filename);
-  console.log(res.locals.name, res.locals.height, res.locals.width);
+  const fullUrl = String(req.protocol + '://' + req.get('host') + req.originalUrl);
+  const lengthCheck = fullUrl.substring(fullUrl.indexOf('.') + 1).length;
 
   if (req.query.name && !req.query.height && !req.query.width) {
-    const checkFile = doesFileExist(imagePath);
-    if (checkFile) {
-      return res.sendFile(imagePath);
+    if (lengthCheck < 4) {
+      return res.status(200).sendFile(res.locals.rawImagePath);
     } else {
-      return res.status(404).json({ error: 'File does not exist. Check your URL and try again.' });
+      return res.status(404).json({
+        error: '404: File Not Found',
+        message: 'The request must be for a raw image. Remove characters after the image file extension and try again.'
+      });
     }
   }
   next();

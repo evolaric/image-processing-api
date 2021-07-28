@@ -2,8 +2,8 @@ import sharp from 'sharp';
 
 export async function processImage(
   rawImage: string,
-  height: number,
-  width: number,
+  height: number | null,
+  width: number | null,
   finalFilePath: string
 ): Promise<string> {
   return new Promise((resolve) => {
